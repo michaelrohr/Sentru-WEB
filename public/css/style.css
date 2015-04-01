@@ -39,7 +39,7 @@ div.container a.brand {
 .img-banner{
     margin-top: 20px;
     height: 120px;
-    
+
 }
 
 .center {
@@ -67,4 +67,39 @@ div.container a.brand {
 
 h3{
     color: navy;    
+}
+
+.navbar-blue{
+    font-family: 'Quattrocento Sans', sans-serif;
+    font-size: 18px;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus:hover{
+    background-color: white;
+    color: #2b669a;
+}
+
+body p ,h1, h2, h3, h4{
+    font-family: 'Lato', sans-serif;
+}
+
+/* Centered Navbar */
+@media (min-width: 768px) {
+    .navbar-centered .navbar-nav {
+        float: none;
+        text-align: center;
+    }
+    .navbar-centered .navbar-nav > li {
+        float: none;
+    }
+    .navbar-centered .nav > li {
+        display: inline;
+    }
+    .navbar-centered .nav > li > a {
+        display: inline-block;
+    }
+}
+
+.text-justify {
+    text-align: justify;
 }

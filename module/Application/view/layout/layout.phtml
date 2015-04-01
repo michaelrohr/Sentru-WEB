@@ -29,12 +29,16 @@
         ;
         ?>
 
+        <!-- Fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+
     </head>
     <body>
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <nav class="navbar navbar-default navbar-fixed-top navbar-centered" role="navigation">
             <div class="container">
-                 <a href="<?php echo $this->url('home') ?>"><img class="img-banner img-responsive" src="/img/SENTRU_Logo_leadership.png"></a>
-                       <!-- Brand and toggle get grouped for better mobile display -->
+                <a href="<?php echo $this->url('home') ?>"><img class="img-banner img-responsive" src="/img/SENTRU_Logo_leadership.png"></a>
+                <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span>
@@ -44,7 +48,7 @@
                     </button>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div class="collapse navbar-collapse navbar-blue" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li class=""><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>
                         <li class=""><a href="<?php echo $this->url('impulsdays') ?>"><?php echo $this->translate('Impulstage') ?></a></li>
