@@ -75,10 +75,10 @@ return array(
                     ),
                 ),
             ),
-            'teambuildung' => array(
+            'teambuilding' => array(
                 'type' => 'segment',
                 'options' => array(
-                    'route' => '/sentru/teambuidling',
+                    'route' => '/sentru/teambuilding',
                     'defaults' => array(
                         'controller' => 'Sentru\Controller\Sentru',
                         'action' => 'teambuilding',
@@ -102,6 +102,16 @@ return array(
                     'defaults' => array(
                         'controller' => 'Sentru\Controller\Sentru',
                         'action' => 'index',
+                    ),
+                ),
+            ),
+            'info' => array(
+                'type' => 'segment',
+                'options' => array(
+                    'route' => '/sentru/info',
+                    'defaults' => array(
+                        'controller' => 'Sentru\Controller\Sentru',
+                        'action' => 'info',
                     ),
                 ),
             ),
