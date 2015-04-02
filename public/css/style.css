@@ -103,3 +103,12 @@ body p ,h1, h2, h3, h4{
 .text-justify {
     text-align: justify;
 }
+
+.form-group, .input-group{
+    width:350px;
+    margin: 15px auto;
+}
+
+.modal-footer-btn{
+    margin: 0px auto;
+}
