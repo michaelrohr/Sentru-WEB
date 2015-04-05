@@ -122,6 +122,7 @@ body p ,h1, h2, h3, h4{
 
 .img-google {
     position: relative;
+    margin:15px 5px 0;
     margin-top: 15px;
     padding-bottom: 400px; // This is the aspect ratio
     height: 0;
