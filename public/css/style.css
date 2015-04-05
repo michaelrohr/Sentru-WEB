@@ -130,14 +130,14 @@ body p ,h1, h2, h3, h4{
     margin: 0px auto;
 }
 
-.google-maps {
+.img-google {
     position: relative;
     margin-top: 15px;
     padding-bottom: 400px; // This is the aspect ratio
     height: 0;
     overflow: hidden;
 }
-.google-maps iframe {
+.img-google iframe {
     position: absolute;
     top: 0;
     left: 0;
