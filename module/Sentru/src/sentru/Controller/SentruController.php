@@ -51,5 +51,8 @@ class SentruController extends AbstractActionController {
     public function seminareAction() {
         return new ViewModel();
     }
+     public function infoAction() {
+        return new ViewModel();
+    }
 
 }

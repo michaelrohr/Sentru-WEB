@@ -1,11 +1,122 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.panel').on('shown.bs.collapse', function (e) {
+            $('iframe').each(function () {
+                $(this).get(0).src = $(this).attr('src');
+            });
+        });
+    });</script>
+
+
 <div class="">
     <img  class="img-responsive center-block" src="<?php echo $this->basePath('img/sentru_ban_location.png') ?>" alt="Sentru Logo"/>
-</div><h1>
-    test
-</h1>
-/* 
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
-*/
+</div>
+<div class="panel panel-info">
+    <div class="panel-body alert-info">
+        <p class="text-justify">
+            Sie schildern uns Ihre Bedürfnisse und wir organisieren für Sie die geeignete Location. Mit unserem Partnernetzwerk sind wir in der Lage, die Seminare in der Schweiz, in Deutschland, Österreich und Ungarn durchzuführen. 
+        </p> 
+    </div>
+</div>
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Hofgut Albführen, Süddeutschland
+                </a>
+            </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+                <div class="text-center">
+                    <div class="">
+                        <h4>Adresse:</h4>
+                        <p>Hofgut Albführen<br>
+                            Albführen 1<br>
+                            79802 Dettighofen<br>
+                            Deutschland<br>
+                            <a href="http://albfuehren.de" target="_blank">www.albfuehren.de</a> 
+                        </p>
+                    </div>
+                </div>
+                <br>
+                <img  class="img-loc" src="<?php echo $this->basePath('img/Alp_F_1.png') ?>" alt="Hofgut Albführen"/>
+                <div class="img-google">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2688.243799851589!2d8.485865!3d47.640829!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47907a511269ca13%3A0xdfd311eb4af517fb!2sHofgut+Albf%C3%BChren!5e0!3m2!1sde!2sch!4v142823342080" width="600" height="450" frameborder="0" style="border:0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingTwo">
+            <h4 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Erushof, Seerose Resort & Spa, Aargau
+                </a>
+            </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+            <div class="panel-body">
+                <div class="text-center">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4>Adresse Hof:</h4>
+                            <p>Erushof<br>
+                                Römerstrasse 475 <br>
+                                5618 Bettwil<br>
+                                Schweiz<br>
+                                <a href="http://www.erushof.ch" target="_blank">www.erushof.ch</a> 
+                            </p>
+                            <br>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Adresse Unterkunft:</h4>
+                            <p>Seerose Resort & Spa<br>
+                                Seerosenstrasse 1<br>
+                                5616 Meisterschwanden<br>
+                                Schweiz<br>
+                                <a href="http://www.seerose.ch" target="_blank">www.seerose.ch</a> 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <img  class="img-loc" src="<?php echo $this->basePath('img/Seerose_F_1.png') ?>" alt="Seerose Resort & Spa, Meisterschwanden"/>
+                <div class="img-google">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2706.544401295727!2d8.225726!3d47.28416!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47901a277ecad295%3A0xf9f1f6f37025db17!2sSeerose+Resort+%26+Spa!5e0!3m2!1sde!2sch!4v1428239034912" width="600" height="450" frameborder="0" style="border:0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingThree">
+            <h4 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Collapsible Group Item #3
+                </a>
+            </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+            <div class="panel-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingThree">
+            <h4 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                    Collapsible Group Item #4
+                </a>
+            </h4>
+        </div>
+        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+            <div class="panel-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+        </div>
+    </div>
+</div>
 

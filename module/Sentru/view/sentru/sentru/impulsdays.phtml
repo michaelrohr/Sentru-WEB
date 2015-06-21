@@ -4,77 +4,122 @@
 <h3>
     Termine Impulstage
 </h3>
-<p class="text-justify text-primary">
+<p class="text-center text-primary">
     An den Impulstagen erhalten sie als Kunde einen Einblick in die SENTRU Leadership Seminare, die individuellen Teambulding Workshops, Assessments  und erleben die Effizenz der Reflektion mit den Pferden. 
 </p>
 <br>
-<p>
-    Interessiert? <a href="<?php echo $this->url('contact') ?>"> <?php echo $this->translate(' Kontaktieren Sie uns') ?></a>.
-</p>
-
+<h4 class="text-center"> Interessiert? <a href="<?php echo $this->url('contact') ?>"> <?php echo $this->translate(' Kontaktieren Sie uns') ?></a>.</h4>
+<br>
 <div class="panel panel-default">
     <div class="panel-heading">Termin Übersicht</div>
     <div class="panel-body">
-        <p style="text-justify">In der untenstehenden Tabellen finden Sie die bekannten Daten für die Druchführung der geplanten Seminare.</p>
+        <p class="text-justify">In der untenstehenden Tabellen finden Sie die bekannten Daten für die Druchführung der geplanten Seminare.</p>
     </div>
 
-
-    <!-- Tabelle -->
-    <table class="table-striped">
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th>Datum</th>
                 <th>Uhrzeit</th>
                 <th>Location</th>
-                <th>Satus</th>
-            </tr>
+                <th>Status</th>
+            </tr>            
         </thead>
         <tbody>
-            <tr>
+            <tr class="text-muted" >               
                 <td>9. März</td>
                 <td>15:00 - 17:00</td>
-                <td>  Erushof, Sarmenstorf</td>
-                <td>Offen</td>
+                <td>Erushof, Sarmenstorf</td>
+                <td>Durchgeführt</td>
             </tr>
-
-            <tr>
+            <tr class="success">
                 <td>8. April</td>
                 <td>14:00 - 17:00</td>
                 <td>Hofgut Albführen, Dettighofen</td>
-                <td>Offen</td>
+                <td>
+                    <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#basicModal"><?php echo $this->translate('Offen') ?></button>
+                </td>
             </tr>
-
-            <tr>
+            <tr class="success">
                 <td>30. April</td>
                 <td>14:00 - 17:00</td>
                 <td>Hofgut Albführen, Dettighofen</td>
-                <td>Offen</td>
+                <td><form action="<?php echo $this->url('contact') ?>">
+                        <button class="btn btn-sm btn-success"><?php echo $this->translate('Offen') ?></button>
+                    </form></td></td>
             </tr>
-
-            <tr>
+            <tr class="success">
                 <td>9. Juni</td>
                 <td>10:00 - 13:00</td>
                 <td>Hofgut Albführen, Dettighofen</td>
-                <td>Offen</td>
+                <td><form action="<?php echo $this->url('contact') ?>">
+                        <button class="btn btn-sm btn-success"><?php echo $this->translate('Offen') ?></button>
+                    </form></td></td>
             </tr>
-            <tr>
-                <td>9. Juni</td>
-                <td>14:00 - 17:00</td>
-                <td>Hofgut Albführen, Dettighofen</td>
-                <td>Offen</td>
-            </tr>
-            <tr>
+            <tr class="success">
                 <td> 9. September</td>
                 <td>  10:00 - 13:00</td>
                 <td>  Hofgut Albführen, Dettighofen</td>
-                <td>Offen</td>
+                <td><form action="<?php echo $this->url('contact') ?>">
+                        <button class="btn btn-sm btn-success"><?php echo $this->translate('Offen') ?></button>
+                    </form></td></td>
             </tr>
-            <tr>  
+            <tr class="success">  
                 <td>14. Oktober</td>        
                 <td> 10:00 - 13:00</td>
                 <td> Hofgut Albführen, Dettighofen</td>
-                <td>Offen</td>
+                <td><form action="<?php echo $this->url('contact') ?>">
+                        <button class="btn btn-sm btn-success"><?php echo $this->translate('Offen') ?></button>
+                    </form></td></td>
             </tr>
         </tbody>
     </table>
+</div>
+
+
+<div class="modal fade" id="basicModal"  role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title text-center">Anmeldung Impulstag</h2>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label class="text-info">Seminar</label>
+                        <br>
+                        <label class="text-muted text-info">8. April, 14:00 - 17:00, Hofgut Albführen, Dettighofen</label>
+                    </div>
+                    <div class="form-group">
+                        <label>Vorname</label>
+                        <input type="text" class="form-control" placeholder="Vorname">
+                    </div>
+                    <div class="form-group">
+                        <label>Nachname</label>
+                        <input type="text" class="form-control" placeholder="Nachname">
+                    </div>
+                    <div class="form-group">
+                        <label>Adresse</label>
+                        <input type="text" class="form-control" placeholder="Adresse">
+                    </div>
+                    <div class="form-group">
+                        <label>Postleitzahl</label>
+                        <input type="text" class="form-control" placeholder="Postleitzahl">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control" placeholder="Email">
+                    </div>
+                    <div class="input-group">
+                        <label>Bemerkung</label>
+                        <textarea type="text" class="form-control"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Abbrechen</button>
+                <button type="button" class="btn btn-success pull-right">Anmeldung absenden</button>
+            </div>
+        </div>
+    </div>
 </div>
