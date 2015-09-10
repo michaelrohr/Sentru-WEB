@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Zend Framework (http://framework.zend.com/)
  *
@@ -11,11 +12,18 @@ namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+use Application\Service\IndexService;
 
-class IndexController extends AbstractActionController
-{
-    public function indexAction()
-    {
+class IndexController extends AbstractActionController {
+
+    protected $indexService;
+
+    function __construct(IndexService $service) {
+        $this->indexService = $service;
+    }
+
+    public function indexAction() {
         return new ViewModel();
     }
+
 }

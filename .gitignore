@@ -8,3 +8,10 @@ nbproject
 .settings
 composer.lock
 vendor/bin
+vendor/
+vendor/*
+.dist
+data/
+data
+data/*
+
