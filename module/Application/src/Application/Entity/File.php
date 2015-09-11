@@ -18,22 +18,28 @@ use Doctrine\ORM\Mapping as ORM;
 use Application\Entity\Core\CoreEntity;
 
 /** @ORM\Entity */
-class User extends CoreEntity{
-
-    function __construct($id, $title) {
-        $this->id = $id;
-        $this->title = $title;
-    }
+class File extends CoreEntity {
 
     /** @ORM\Column(type="string") */
-    protected $title;
+    protected $path;
 
-    function getTitle() {
-        return $this->title;
+    /** @ORM\Column(type="string") */
+    protected $fileName;
+
+    function getPath() {
+        return $this->path;
     }
 
-    function setTitle($title) {
-        $this->title = $title;
+    function getFileName() {
+        return $this->fileName;
+    }
+
+    function setPath($path) {
+        $this->path = $path;
+    }
+
+    function setFileName($fileName) {
+        $this->fileName = $fileName;
     }
 
 }
