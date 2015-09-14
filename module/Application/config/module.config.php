@@ -62,6 +62,7 @@ return array(
     'view_helpers' => array(
         'invokables' => array(
             'EmployeeHelper' => 'Application\View\Helper\EmployeeHelper',
+            'TestimonialCarouselHelper' => 'Application\View\Helper\TestimonialCarouselHelper',
                  ),
         'factories' => array(
         ),

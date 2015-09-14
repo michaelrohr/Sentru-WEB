@@ -27,9 +27,11 @@ class IndexController extends AbstractActionController {
 
     public function indexAction() {
         $employees = $this->indexService->getAllEmployees();
+        $testimonials = $this->indexService->getAllTestimonials();
 
         return array(
-        'employees' => $employees
+            'employees' => $employees,
+            'testimonials' => $testimonials
         );
     }
 

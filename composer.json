@@ -11,8 +11,6 @@
         "php": ">=5.4",
         "zendframework/zendframework": "~2.5",
         "neilime/zf2-twb-bundle": "2.*@stable",
-        "zf-hipsters/bootstrap-flash-messenger": ">=1.0",
         "doctrine/doctrine-orm-module": "0.*"
-            
     }
 }

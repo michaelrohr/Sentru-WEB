@@ -1,48 +1,52 @@
-<div class="container">
-    <div class="container">
-        <h1 class="page-header"><?php echo $this->translate('Mitarbeiter') ?></h1>
-        <div class="table-responsive">
-            <table class="table  table-striped">
-                <thead>
-                    <tr>
-                        <th><?php echo $this->translate('') ?></th>    
-                        <th><?php echo $this->translate('#ID') ?></th>
-                        <th><?php echo $this->translate('Vorname') ?></th>
-                        <th><?php echo $this->translate('Nachname') ?></th>
-                        <th><?php echo $this->translate('Email') ?></th>
-                        <th><?php echo $this->translate('Zitat') ?></th>
-                        <th><?php echo $this->translate('Über mich') ?></th>
-                        <th><?php echo $this->translate('Aktiv') ?></th>                        
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($employees as $employee) {
-                        ?>
-                        <tr>
-                            <td> 
-                                <a class="btn btn-xs" href="<?php
-                                echo $this->url('langroute/config/default', array(
-                                    'controller' => 'employee', 'action' => 'edit', 'id' => $employee->getId()))
-                                ?>">
-                                    <span class="glyphicon glyphicon-edit"></span> <?php echo $this->translate('Ändern') ?>
-                                </a>
-                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteUser">
-                                    <?php echo $this->translate('Löschen') ?>
-                                </button>
-                            </td>
-                            <td><?php echo $employee->getID() ?></td>
-                            <td><?php echo $employee->getFirstname() ?></td>
-                            <td><?php echo $employee->getLastname() ?></td>
-                            <td><?php echo $employee->getEmail() ?></td>
-                            <td><?php echo $this->translate($employee->getQuote()) ?></td>
-                            <td><?php echo $this->translate($employee->getAboutMe()) ?></td>    
-                            <td><?php echo $this->ActiveHelper($employee->getActive()) ?></td>
-                        </tr>
-                    <?php } ?>             
-                </tbody>
-            </table>
-        </div>
+
+<div class="page-header">
+    <div class=" btn-toolbar pull-right">
+        <a class="btn btn-info" href="<?php echo $this->url('langroute/config/default', array('controller' => 'employee', 'action' => 'add')) ?>">
+            <span class="glyphicon glyphicon-plus"></span> <?php echo $this->translate('Hinzufügen') ?>
+        </a>
     </div>
+    <h1 class=""><?php echo $this->translate('Mitarbeiter') ?></h1>
+</div>
+<div class="table-responsive">
+    <table class="table  table-striped">
+        <thead>
+            <tr>
+                <th><?php echo $this->translate('') ?></th>    
+                <th><?php echo $this->translate('#ID') ?></th>
+                <th><?php echo $this->translate('Vorname') ?></th>
+                <th><?php echo $this->translate('Nachname') ?></th>
+                <th><?php echo $this->translate('Email') ?></th>
+                <th><?php echo $this->translate('Zitat') ?></th>
+                <th><?php echo $this->translate('Über mich') ?></th>
+                <th><?php echo $this->translate('Aktiv') ?></th>                        
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($employees as $employee) {
+                ?>
+                <tr>
+                    <td> 
+                        <a class="btn btn-xs" href="<?php
+                        echo $this->url('langroute/config/default', array(
+                            'controller' => 'employee', 'action' => 'edit', 'id' => $employee->getId()))
+                        ?>">
+                            <span class="glyphicon glyphicon-edit"></span> <?php echo $this->translate('Ändern') ?>
+                        </a>
+                        <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteUser">
+                            <?php echo $this->translate('Löschen') ?>
+                        </button>
+                    </td>
+                    <td><?php echo $employee->getID() ?></td>
+                    <td><?php echo $employee->getFirstname() ?></td>
+                    <td><?php echo $employee->getLastname() ?></td>
+                    <td><?php echo $employee->getEmail() ?></td>
+                    <td><?php echo $this->translate($employee->getQuote()) ?></td>
+                    <td><?php echo $this->translate($employee->getAboutMe()) ?></td>    
+                    <td><?php echo $this->ActiveHelper($employee->getActive()) ?></td>
+                </tr>
+            <?php } ?>             
+        </tbody>
+    </table>
 </div>
 
 <div class="modal fade" id="deleteUser" tabindex="-1" role="dialog" aria-labelledby="<?php echo $this->translate('Benutzer löschen') ?>">

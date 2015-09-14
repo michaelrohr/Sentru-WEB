@@ -42,7 +42,7 @@ class Testimonial extends CoreEntity {
      *  @ORM\OneToOne(targetEntity="Application\Entity\File",cascade={"persist", "remove"})
      */
     protected $logo;
-    
+
     function getStatement() {
         return $this->statement;
     }
@@ -51,7 +51,6 @@ class Testimonial extends CoreEntity {
         $this->statement = $statement;
     }
 
-    
     function getFirstName() {
         return $this->firstName;
     }

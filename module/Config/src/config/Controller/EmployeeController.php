@@ -26,6 +26,11 @@ class EmployeeController extends AbstractActionController {
     public function indexAction() {
         $employees = $this->employeeService->getAllEmployees();
 
+        if ($employees == null) {
+            $this->flashMessenger()->addInfoMessage('Es sind noch keine Mitarbeiter vorhanden !');
+            return $this->redirect()->toRoute('langroute/config/default', array('controller' => 'employee', 'action' => 'add'), null);
+        }
+
         return array(
             'employees' => $employees
         );

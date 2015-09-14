@@ -11,6 +11,11 @@ use Zend\ServiceManager\ServiceManager;
  */
 class IndexService extends CoreService {
 
+    public function getAllTestimonials() {
+        $testimonial = $this->entityManager->getRepository('Application\Entity\Testimonial')->findAll();
+        return $testimonial;
+    }
+
     public function getAllEmployees() {
         $employee = $this->entityManager->getRepository('Application\Entity\Employee')->findAll();
         return $employee;
