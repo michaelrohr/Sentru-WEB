@@ -20,10 +20,10 @@ use Application\Entity\Core\CoreEntity;
 /** @ORM\Entity */
 class File extends CoreEntity {
 
-    /** @ORM\Column(type="string") */
+    /** @ORM\Column(type="string", nullable=true) */
     protected $path;
 
-    /** @ORM\Column(type="string") */
+    /** @ORM\Column(type="string", nullable=true) */
     protected $fileName;
 
     function getPath() {

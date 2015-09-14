@@ -5,8 +5,16 @@ body {
 
 .img-banner{
     margin-top: 20px;
-    height: 120px;
+    height: 100px;
+}
 
+.banner{
+    padding-bottom: 20px;
+}
+
+.employee{
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .center {
@@ -19,18 +27,12 @@ body {
     margin-right:20px;
 }
 
-.video{  
-    width: 100%    !important;
-    height: auto   !important;
-}
 
 .img-head{
     padding: 5px;
     width:112px;
     height:120px;
 }
-
-
 
 h3{
     color: navy;    
@@ -65,8 +67,22 @@ body p ,h1, h2, h3, h4{
     .navbar-centered .nav > li > a {
         display: inline-block;
     }
-};
+}
 
 .text-justify {
+    hyphens: auto; 
     text-align: justify;
 }
+
+.text-state-success{
+    color: #4ba34c;
+}
+.text-state-danger{
+    color: #c1302f;
+}
+
+.alert{
+    margin: auto;
+    margin-bottom: 40px;
+    max-width: 1024px;
+   }

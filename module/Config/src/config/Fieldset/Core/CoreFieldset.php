@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\Fieldset\Core;
+namespace Config\Fieldset\Core;
 
 use Zend\Form\Fieldset;
 

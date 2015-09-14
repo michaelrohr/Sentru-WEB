@@ -59,6 +59,13 @@ return array(
             ),
         ),
     ),
+    'view_helpers' => array(
+        'invokables' => array(
+            'EmployeeHelper' => 'Application\View\Helper\EmployeeHelper',
+                 ),
+        'factories' => array(
+        ),
+    ),
     'service_manager' => array(
         'abstract_factories' => array(
             'Zend\Cache\Service\StorageCacheAbstractServiceFactory',
@@ -102,19 +109,14 @@ return array(
             __DIR__ . '/../view',
         ),
     ),
-    // Placeholder for console routes
-    'console' => array(
-        'router' => array(
-            'routes' => array(
-            ),
-        ),
-    ),
     'doctrine' => array(
         'driver' => array(
             'application_entities' => array(
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
                 'cache' => 'array',
-                'paths' => array(__DIR__ . '/../src/Application/Entity')
+                'paths' => array(
+                    __DIR__ . '/../src/Application/Entity',
+                )
             ),
             'orm_default' => array(
                 'drivers' => array(

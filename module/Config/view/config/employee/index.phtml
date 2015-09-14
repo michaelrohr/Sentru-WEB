@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="container">
+        <h1 class="page-header"><?php echo $this->translate('Mitarbeiter') ?></h1>
+        <div class="table-responsive">
+            <table class="table  table-striped">
+                <thead>
+                    <tr>
+                        <th><?php echo $this->translate('') ?></th>    
+                        <th><?php echo $this->translate('#ID') ?></th>
+                        <th><?php echo $this->translate('Vorname') ?></th>
+                        <th><?php echo $this->translate('Nachname') ?></th>
+                        <th><?php echo $this->translate('Email') ?></th>
+                        <th><?php echo $this->translate('Zitat') ?></th>
+                        <th><?php echo $this->translate('Über mich') ?></th>
+                        <th><?php echo $this->translate('Aktiv') ?></th>                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($employees as $employee) {
+                        ?>
+                        <tr>
+                            <td> 
+                                <a class="btn btn-xs" href="<?php
+                                echo $this->url('langroute/config/default', array(
+                                    'controller' => 'employee', 'action' => 'edit', 'id' => $employee->getId()))
+                                ?>">
+                                    <span class="glyphicon glyphicon-edit"></span> <?php echo $this->translate('Ändern') ?>
+                                </a>
+                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteUser">
+                                    <?php echo $this->translate('Löschen') ?>
+                                </button>
+                            </td>
+                            <td><?php echo $employee->getID() ?></td>
+                            <td><?php echo $employee->getFirstname() ?></td>
+                            <td><?php echo $employee->getLastname() ?></td>
+                            <td><?php echo $employee->getEmail() ?></td>
+                            <td><?php echo $this->translate($employee->getQuote()) ?></td>
+                            <td><?php echo $this->translate($employee->getAboutMe()) ?></td>    
+                            <td><?php echo $this->ActiveHelper($employee->getActive()) ?></td>
+                        </tr>
+                    <?php } ?>             
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteUser" tabindex="-1" role="dialog" aria-labelledby="<?php echo $this->translate('Benutzer löschen') ?>">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel"><?php echo $this->translate('Benutzer löschen') ?></h4>
+            </div>
+            <div class="modal-body">
+                <?php echo $this->translate('Beim Bestätigen wird der Benutzer endgültig vom System gelöscht. Danach kann Dieser nicht mehr Wiederhergestellt werden.') ?>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo $this->translate('Schliessen') ?></button>
+                <a class="btn btn-danger" href="<?php
+                echo $this->url('langroute/config/default', array(
+                    'controller' => 'employee', 'action' => 'delete', 'id' => $employee->getId()))
+                ?>">
+                    <span class="glyphicon glyphicon-remove"></span> <?php echo $this->translate('Löschen') ?>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

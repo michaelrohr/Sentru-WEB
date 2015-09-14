@@ -1,8 +1,8 @@
 <?php
 
-namespace Application\Fieldset;
+namespace Config\Fieldset;
 
-use Application\Fieldset\Core\CoreFieldset;
+use Config\Fieldset\Core\CoreFieldset;
 use Zend\InputFilter\InputFilterProviderInterface;
 use Application\Entity\File;
 use Zend\InputFilter\InputFilter;

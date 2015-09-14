@@ -18,7 +18,7 @@ use Application\Entity\Core\CoreEntity;
 use Doctrine\ORM\Mapping as ORM;
 
 /** @ORM\Entity */
-class Employee extends CoreEntity {
+class Testimonial extends CoreEntity {
 
     /** @ORM\Column(type="string", nullable=true) */
     protected $firstName;
@@ -29,33 +29,29 @@ class Employee extends CoreEntity {
     /** @ORM\Column(type="string", nullable=true) */
     protected $email;
 
-    /** @ORM\Column(type="text", nullable=true) */
-    protected $quote;
+    /** @ORM\Column(type="string", nullable=true) */
+    protected $company;
+
+    /** @ORM\Column(type="string", nullable=true) */
+    protected $position;
 
     /** @ORM\Column(type="text", nullable=true) */
-    protected $aboutMe;
+    protected $statement;
 
     /**
      *  @ORM\OneToOne(targetEntity="Application\Entity\File",cascade={"persist", "remove"})
      */
-    protected $image;
-
-    function getEmail() {
-        return $this->email;
+    protected $logo;
+    
+    function getStatement() {
+        return $this->statement;
     }
 
-    function setEmail($email) {
-        $this->email = $email;
+    function setStatement($statement) {
+        $this->statement = $statement;
     }
 
-    function getImage() {
-        return $this->image;
-    }
-
-    function setImage($image) {
-        $this->image = $image;
-    }
-
+    
     function getFirstName() {
         return $this->firstName;
     }
@@ -64,12 +60,20 @@ class Employee extends CoreEntity {
         return $this->lastName;
     }
 
-    function getQuote() {
-        return $this->quote;
+    function getEmail() {
+        return $this->email;
     }
 
-    function getAboutMe() {
-        return $this->aboutMe;
+    function getCompany() {
+        return $this->company;
+    }
+
+    function getPosition() {
+        return $this->position;
+    }
+
+    function getLogo() {
+        return $this->logo;
     }
 
     function setFirstName($firstName) {
@@ -80,12 +84,20 @@ class Employee extends CoreEntity {
         $this->lastName = $lastName;
     }
 
-    function setQuote($quote) {
-        $this->quote = $quote;
+    function setEmail($email) {
+        $this->email = $email;
     }
 
-    function setAboutMe($aboutMe) {
-        $this->aboutMe = $aboutMe;
+    function setCompany($company) {
+        $this->company = $company;
+    }
+
+    function setPosition($position) {
+        $this->position = $position;
+    }
+
+    function setLogo($logo) {
+        $this->logo = $logo;
     }
 
 }

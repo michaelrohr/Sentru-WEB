@@ -15,6 +15,9 @@ abstract class CoreEntity {
      */
     protected $id;
 
+    /** @ORM\Column(type="integer", nullable=true) */
+    protected $active;
+
     /**
      * @var string
      * @ORM\Column(type="datetime",nullable=true)
@@ -26,6 +29,14 @@ abstract class CoreEntity {
      * @ORM\Column(type="datetime",nullable=true)
      */
     protected $updateDate;
+
+    function getActive() {
+        return $this->active;
+    }
+
+    function setActive($active) {
+        $this->active = $active;
+    }
 
     function getId() {
         return $this->id;
