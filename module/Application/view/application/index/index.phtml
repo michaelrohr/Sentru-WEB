@@ -1,64 +1,78 @@
-<div class="container">
-    <div class="banner">
-        <img class="img-responsive center" src="/img/SENTRU_ban_index.png">
-    </div>
+
+<div class="banner">
+    <img class="img-responsive center" src="/img/SENTRU_ban_index.png">
+</div>
 
 
-    <!-- START TEST -->  
-    <div class="col-md-12">
-        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <!--                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>-->
-                <li   data-target="#carousel-example-generic" data-slide-to="0"class="active"></li>
-                <li data-target="#carousel-example-generic"  data-slide-to="1"></li>
+<!-- START TEST -->  
 
-            </ol>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#carousel-example.slide').carousel({
+            interval: 7000,
+            pause: "hover"
+        });
 
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner" role="listbox">
+        $('input').focus(function () {
+            $("#carousel-example").carousel('pause');
+        }).blur(function () {
+            $("#carousel-example").carousel('cycle');
+        });
+
+    });
+</script>
+
+<div id="carousel-example" class="carousel slide" data-ride="carousel">
+    <!-- Wrapper for slides -->
+    <div class="row">
+        <div class="col-xs-offset-2 col-xs-8">
+            <!--            <div>
+                            <img class="preview" src="https://www.magicload.ch/images/pics/swisscom-logo_png.png">
+                            <img class="preview" src="http://www.designtagebuch.de/wp-content/uploads/mediathek//2015/04/salt-logo-700x400.gif"> 
+                        </div>-->
+            <div class="carousel-inner">  
                 <?php
                 $i = 1;
                 foreach ($testimonials as $testimonial) {
-                    ?>
-                    <div class="item <?php
-                    if ($i == 1) {
-                        echo 'active';
+                    if ($testimonial->getActive()) {
+                        ?>
+                        <div class="item<?php
+                        if ($i == 1) {
+                            echo ' active';
+                        }
+                        ?> ">
+                            <div class="carousel-content">
+                                <div id="<?php echo $testimonial->getId() ?>">                            
+                                    <p>«<?php echo $testimonial->getStatement() ?>»</p>
+                                    <h4><?php
+                                        echo $testimonial->getFirstname();
+                                        echo $testimonial->getLastname() . ', ' . $testimonial->getPosition() . ', ' . $testimonial->getCompany()
+                                        ?></h4>
+                                    <img class="" src="<?php echo $testimonial->getLogo()->getPath() ?>">
+                                </div>
+                            </div>
+                        </div>               
+                        <?php
+                        $i++;
                     }
-                    ?>">
-                        <i class="text-justify">"<?php echo $testimonial->getStatement() ?>"</i>
-                        <div class="">
-                            <img class="img-responsive logo" src="<?php echo $testimonial->getLogo()->getPath() ?>">
-                        </div>
-                    </div>
-
-                    <?php
-                    $i++;
                 }
                 ?>
             </div>
-
-            <!-- Controls -->
-            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-<!--                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>-->
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-<!--                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>-->
-                <span class="sr-only">Next</span>
-            </a>
         </div>
     </div>
-    <!-- END TEST -->  
+    <!-- Controls --> <a class="left carousel-control" href="#carousel-example" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+</div>
 
 
-
-    <div class="row">
-        <?php
-        foreach ($employees as $employee) {
-            echo $this->EmployeeHelper($employee);
-        }
-        ?>
-    </div>
+<div class="row">
+    <?php
+    foreach ($employees as $employee) {
+        echo $this->EmployeeHelper($employee);
+    }
+    ?>
 </div>

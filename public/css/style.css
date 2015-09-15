@@ -74,22 +74,42 @@ body p ,h1, h2, h3, h4{
     text-align: justify;
 }
 
+/* FlashMessenger */
 .text-state-success{
     color: #4ba34c;
 }
 .text-state-danger{
     color: #c1302f;
 }
-
 .alert{
     margin: auto;
     margin-bottom: 40px;
     max-width: 1024px;
 }
 
-.carousel-control.left, .carousel-control.right{
-    background-image: none;
+/*Carousel*/
+.carousel-content {
+    color:black;
+    display:flex;
+    padding-top: 10px;
+    min-height: 250px;
 }
+.left.carousel-control, .right.carousel-control{
+    background: none;
+}
+.glyphicon-chevron-left, .glyphicon-chevron-right{
+    color: #1c73ff
+}
+.carousel-content img{
+    padding-top: 20px;
+    max-height: 50px;
+}
+.preview{
+    max-height: 20px;   
+}
+
+
+
 
 .logo{
     margin: 0 auto;
@@ -98,5 +118,5 @@ body p ,h1, h2, h3, h4{
 
 .modal-open .navbar-fixed-top,
 .modal-open .navbar-fixed-bottom {
-padding-right: 17px;
+    padding-right: 17px;
 }
