@@ -56,11 +56,13 @@ return array(
             'config' => 'Config\Controller\ConfigController',
             'employee' => 'Config\Controller\EmployeeController',
             'testimonial' => 'Config\Controller\TestimonialController',
+            'impulseday' => 'Config\Controller\ImpulsedayController',
         ),
         'factories' => array(
             'Config\Controller\ConfigController' => 'Config\Factory\Controller\ConfigControllerFactory',
             'Config\Controller\EmployeeController' => 'Config\Factory\Controller\EmployeeControllerFactory',
             'Config\Controller\TestimonialController' => 'Config\Factory\Controller\TestimonialControllerFactory',
+            'Config\Controller\ImpulsedayController' => 'Config\Factory\Controller\ImpulsedayControllerFactory',
         ),
     ),
     'view_manager' => array(

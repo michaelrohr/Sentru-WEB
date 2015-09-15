@@ -1,12 +1,27 @@
 
 <div class="page-header">
     <h1><?php echo $this->translate('Einstellungen') ?></h1>
-    <?php
-    for ($i = 1; $i <= 40; $i++) {
-        ?>
-        <span class="glyphicon glyphicon-cog "></span>
-        <?php
-    }
-    ?>
-    <span class="glyphicon glyphicon-cog "></span>
 </div>
+
+
+<a class="btn btn-lg btn-success center-block" href="<?php
+echo $this->url('langroute/config/default', array(
+    'controller' => 'testimonial', 'action' => 'index'))
+?>">
+    <span class="glyphicon glyphicon-film"></span> <?php echo $this->translate('Testimonials') ?>
+</a>
+<br>
+<a class="btn btn-lg btn-success center-block" href="<?php
+echo $this->url('langroute/config/default', array(
+    'controller' => 'employee', 'action' => 'index'))
+?>">
+    <span class="glyphicon glyphicon-film"></span> <?php echo $this->translate('Mitarbeiter') ?>
+</a>
+<br>
+<a class="btn btn-lg btn-success center-block" href="<?php
+echo $this->url('langroute/config/default', array(
+    'controller' => 'impulsday', 'action' => 'index'))
+?>">
+    <span class="glyphicon glyphicon-film"></span> <?php echo $this->translate('Impulstage') ?>
+</a>
+<br>

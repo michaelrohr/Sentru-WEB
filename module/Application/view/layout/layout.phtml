@@ -53,8 +53,7 @@ echo $flash->render('success', array('alert', 'alert-dismissible', 'alert-succes
     </head>
     <body>
         <nav class="navbar navbar-default navbar-fixed-top navbar-centered" role="navigation">
-            <div class="container">
-                <a href="<?php echo $this->url('home') ?>"><img class="img-banner img-responsive" src="/img/SENTRU_Logo_leadership.png"></a>
+            <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -63,10 +62,48 @@ echo $flash->render('success', array('alert', 'alert-dismissible', 'alert-succes
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
+                    <a href="<?php
+                    echo $this->url('langroute/default', array(
+                        'controller' => 'index', 'action' => 'index'))
+                    ?>"><img class="img-banner img-responsive" src="/img/SENTRU_Logo_leadership.png"></a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse navbar-blue" id="bs-example-navbar-collapse-1">
 
+                    <ul class="nav navbar-nav">
+                        <li class="">
+                            <a href="<?php
+                            echo $this->url('langroute/default', array(
+                                'controller' => 'index', 'action' => 'index'))
+                            ?>"><?php echo$this->translate('Home') ?>
+                            </a>
+                        </li>
+                        <li><a href="<?php
+                            echo $this->url('langroute/default', array(
+                                'controller' => 'index', 'action' => 'index'))
+                            ?>"><?php echo $this->translate('Seminare'); ?>
+                            </a>
+                        </li>
+                        <li><a href="<?php
+                            echo $this->url('langroute/default', array(
+                                'controller' => 'index', 'action' => 'index'))
+                            ?>"><?php echo $this->translate('Über uns'); ?>
+                            </a>
+                        </li>
+                        <li><a href="<?php
+                            echo $this->url('langroute/default', array(
+                                'controller' => 'index', 'action' => 'index'))
+                            ?>"><?php echo $this->translate('Location'); ?>
+                            </a>
+                        </li>
+                        <li><a href="<?php
+                            echo $this->url('langroute/default', array(
+                                'controller' => 'index', 'action' => 'index'))
+                            ?>"><?php echo $this->translate('Kontakt'); ?>
+                            </a>
+                        </li>
+
+                    </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container -->
         </nav>

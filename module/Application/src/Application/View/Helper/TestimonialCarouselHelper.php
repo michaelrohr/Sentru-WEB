@@ -23,34 +23,6 @@ class TestimonialCarouselHelper extends AbstractHelper {
 
         if (!$entites == null) {
 
-            $ret = '';
-
-            $ret.= '<div id="' . $id . '" class="carousel slide" data-ride="carousel">';
-            $ret.= '<ol class="carousel-indicators">';
-            foreach ($entites as $entity) {
-                if ($entity->getActive()) {
-                    $ret.=' <li data-target="' . $id . '" data-slide-to = "' . $entity->getId() . '" class = "active"></li>';
-                }
-            }
-            $ret.= '</ol>';
-            $ret.= '<div class = "carousel-inner" role = "listbox">';
-
-            foreach ($entites as $entity) {
-                $ret.= ' <div class = "carousel-inner" role = "listbox">';
-                $ret.= ' <div class = "item-active">';
-                $ret.= ' <img src = "' . $entity->getLogo()->getPath() . '" alt = "' . $entity->getCompany() . '-logo">';
-                $ret.= ' <div class = "carousel-caption">';
-                $ret.= ' <h3>Chania</h3>';
-                $ret.= ' <p>' . $entity->getStatement() . '</p>';
-                $ret.= ' </div>';
-                $ret.= ' </div>';
-                $ret.= ' </div>';
-            }
-
-
-            $ret.= '</div>';
-            $ret.= '</div>';
-
             return $ret;
         } else {
             return null;
