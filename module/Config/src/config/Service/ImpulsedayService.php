@@ -6,19 +6,14 @@ use Application\Service\Core\CoreService;
 use Zend\ServiceManager\ServiceManager;
 
 /**
- * ConfigService
+ * ImpulsdayService
  * 
  */
 class ImpulsedayService extends CoreService {
 
     public function getAllImpulsedays() {
-        $impulseday = $this->entityManager->getRepository('Application\Entity\Impulseday')->findAll();
-        return $impulseday;
-    }
-
-    public function getImpulseday($id) {
-        $impulseday = $this->entityManager->getRepository('Application\Entity\Impulseday')->findOneBy(array('id' => $id));
-        return $impulseday;
+        $impulsedays = $this->entityManager->getRepository('Application\Entity\Impulseday')->findAll();
+        return $impulsedays;
     }
 
     public function add($impulseday) {

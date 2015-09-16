@@ -17,7 +17,8 @@ namespace Application\Entity;
 use Application\Entity\Core\CoreEntity;
 use Doctrine\ORM\Mapping as ORM;
 
-/** @ORM\Entity */
+/** @ORM\Entity
+ * @ORM\Entity(repositoryClass="Application\Repository\LocationsRepository") */
 class Location extends CoreEntity {
 
     /** @ORM\Column(type="string", nullable=true) */

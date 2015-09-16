@@ -11,8 +11,9 @@ class ImpulsedayControllerFactory implements FactoryInterface {
     public function createService(ServiceLocatorInterface $serviceLocator) {
         $sm = $serviceLocator->getServiceLocator();
         $service = $sm->get('Config\Service\ImpulsedayService');
+        $form = $sm->get('FormElementManager')->get('Config\Form\ImpulsedayForm');
 
-        return new ImpulsedayController($service);
+        return new ImpulsedayController($service, $form);
     }
 
 }

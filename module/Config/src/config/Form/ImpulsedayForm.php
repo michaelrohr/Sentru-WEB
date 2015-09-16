@@ -19,39 +19,85 @@ use Application\Entity\Impulseday;
 use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\I18n\Translator\Translator;
 use Zend\InputFilter\InputFilterProviderInterface;
+use Doctrine\ORM\EntityManager;
+use DoctrineModule\Stdlib\Hydrator\DoctrineObject;
+use DoctrineModule\Persistence\ObjectManagerAwareInterface;
+use Doctrine\Common\Persistence\ObjectManager;
 
-class ImpulsedayForm extends Form implements InputFilterProviderInterface {
+class ImpulsedayForm extends Form implements InputFilterProviderInterface, ObjectManagerAwareInterface {
 
     protected $translator;
+    protected $entityManager;
+     protected $objectManager;
 
-    public function __construct() {
+    public function setObjectManager(ObjectManager $objectManager) {
+        $this->objectManager = $objectManager;
+    }
+
+    public function getObjectManager() {
+        return $this->objectManager;
+    }
+
+    public function init() {
+        $this->add(array(
+            'name' => 'location',
+            'type' => 'DoctrineModule\Form\Element\ObjectSelect',
+            'options' => array(
+                'object_manager' => $this->entityManager,
+                'target_class' => 'Application\Entity\Location',
+                'property' => 'name',
+//                'is_method' => true,
+//                'find_method' => array(
+//                    'name' => 'getName',
+//                ),
+            ),
+        ));
+    }
+
+    public function __construct(EntityManager $entityManager) {
 
         parent::__construct('location');
         $this->translator = new Translator();
-        $this->setHydrator(new ClassMethods(false));
+        $this->setHydrator(new ClassMethods());
         $this->setObject(new Impulseday());
+
+        $this->entityManager = $entityManager;
+
+//        $this->add(array(
+//            'name' => 'location',
+//            'type' => 'DoctrineModule\Form\Element\ObjectSelect',
+//            'options' => array(
+//                'object_manager' => $this->getObjectManager(),
+//                'target_class' => 'Application\Entity\Location',
+//                'property' => 'name',
+////                'is_method' => true,
+////                'find_method' => array(
+////                    'name' => 'getName',
+////                ),
+//            ),
+//        ));
 
         $this->add(array(
             'name' => 'startTime',
             'type' => 'Date',
             'options' => array(
-                'label' => $this->translator->translate('Startdatum und Zeit'),
+                'label' => $this->translator->translate('Start Datum'),
                 'format' => 'Y-m-d',
             ),
             'attributes' => array(
-                'required' => 'required'
+                'required' => 'required',
             )
         ));
 
         $this->add(array(
-            'name' => 'Date',
-            'type' => 'Text',
+            'name' => 'endTime',
+            'type' => 'Date',
             'options' => array(
-                'label' => $this->translator->translate('Enddatum und Zeit'),
+                'label' => $this->translator->translate('End Datum'),
                 'format' => 'Y-m-d',
             ),
             'attributes' => array(
-                'required' => 'required'
+                'required' => 'required',
             )
         ));
 
@@ -66,8 +112,39 @@ class ImpulsedayForm extends Form implements InputFilterProviderInterface {
             )
         ));
 
+//        $this->add(array(
+//            'type' => 'Config\Fieldset\LocationFieldset',
+//        ));
+//        $this->add(array(
+//            'name' => 'location',
+//            'type' => 'Select',
+//            'attributes' => array(
+//            ),
+//            'options' => array(
+//                'label' => $this->translator->translate('Location'),
+//            ),
+//        ));
+//        $this->add(array(
+//            'name' => 'continent',
+//            'type' => 'DoctrineModule\Form\Element\ObjectSelect',
+//            'options' => array(
+//                'object_manager' => $this->entityManager,
+//                'target_class' => 'Tutorial\Entity\Countries',
+//                'property' => 'continent',
+//                'is_method' => true,
+//                'find_method' => array(
+//                    'name' => 'getContinent',
+//                ),
+//            ),
+//        ));
+
+
         $this->add(array(
-            'type' => 'Config\Fieldset\LocationFieldset',
+            'name' => 'active',
+            'type' => 'Checkbox',
+            'options' => array(
+                'label' => $this->translator->translate('Aktiv'),
+            ),
         ));
 
         $this->add(array(

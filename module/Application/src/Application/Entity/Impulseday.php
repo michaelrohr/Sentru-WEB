@@ -22,17 +22,17 @@ class Impulseday extends CoreEntity {
 
     /**
      * @var string
-     * @ORM\Column(type="datetime",nullable=true)
+     * @ORM\Column(type="string",nullable=true)
      */
     protected $startTime;
 
     /**
      * @var string
-     * @ORM\Column(type="datetime",nullable=true)
+     * @ORM\Column(type="string",nullable=true)
      */
     protected $endTime;
 
-    /** @ORM\Column(type="integer", nullable=true) */
+    /** @ORM\Column(type="text", nullable=true) */
     protected $description;
 
     /**

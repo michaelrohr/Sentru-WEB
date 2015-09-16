@@ -12,15 +12,17 @@ namespace Config\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Config\Service\ImpulsedayService;
-use Config\Form\ImpulsedayForm;
+use Zend\Form\FormInterface;
 use Application\Entity\Impulseday;
 
 class ImpulsedayController extends AbstractActionController {
 
     protected $impulsedayService;
+    protected $impulsedayForm;
 
-    function __construct(ImpulsedayService $service) {
+    function __construct(ImpulsedayService $service, FormInterface $impulsedayForm) {
         $this->impulsedayService = $service;
+        $this->impulsedayForm = $impulsedayForm;
     }
 
     public function indexAction() {
@@ -37,9 +39,8 @@ class ImpulsedayController extends AbstractActionController {
     }
 
     public function addAction() {
-        $form = new ImpulsedayForm();
         $request = $this->getRequest();
-
+        $form = $this->impulsedayForm;
         if ($request->isPost()) {
             $impulseday = new Impulseday;
             $form->bind($impulseday);

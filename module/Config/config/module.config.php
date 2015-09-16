@@ -65,6 +65,11 @@ return array(
             'Config\Controller\ImpulsedayController' => 'Config\Factory\Controller\ImpulsedayControllerFactory',
         ),
     ),
+    'form_elements' => array(
+        'factories' => array(
+            'Config\Form\ImpulsedayForm' => 'Config\Factory\Form\ImpulsedayFormFactory',
+        ),
+    ),
     'view_manager' => array(
         'template_map' => array(),
         'template_path_stack' => array(
