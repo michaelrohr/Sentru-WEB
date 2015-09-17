@@ -47,6 +47,7 @@ class Module {
             ),
             'factories' => array(
                 'Application\Service\IndexService' => 'Application\Factory\Service\IndexServiceFactory',
+                'Application\Service\ImpulsedayService' => 'Application\Factory\Service\ImpulsedayServiceFactory',
             ),
         );
     }

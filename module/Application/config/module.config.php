@@ -89,9 +89,11 @@ return array(
     'controllers' => array(
         'aliases' => array(
             'index' => 'Application\Controller\IndexController',
+//            'impulsday' => 'Application\Controller\ImpulsedayController',
         ),
         'factories' => array(
             'Application\Controller\IndexController' => 'Application\Factory\Controller\IndexControllerFactory',
+             'Application\Controller\ImpulsedayController' => 'Application\Factory\Controller\ImpulsedayControllerFactory',
         ),
     ),
     'view_manager' => array(

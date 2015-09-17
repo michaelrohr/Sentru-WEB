@@ -64,7 +64,7 @@ return array(
             'Config\Controller\EmployeeController' => 'Config\Factory\Controller\EmployeeControllerFactory',
             'Config\Controller\TestimonialController' => 'Config\Factory\Controller\TestimonialControllerFactory',
             'Config\Controller\ImpulsedayController' => 'Config\Factory\Controller\ImpulsedayControllerFactory',
-              'Config\Controller\LocationController' => 'Config\Factory\Controller\LocationControllerFactory',
+            'Config\Controller\LocationController' => 'Config\Factory\Controller\LocationControllerFactory',
         ),
     ),
     'form_elements' => array(

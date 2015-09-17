@@ -11,13 +11,9 @@
 namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\ViewModel;
 use Application\Service\IndexService;
-use Application\Form\EmployeeForm;
-use Zend\Http\PhpEnvironment\Response;
-use Application\Entity\Employee;
 
-class IndexController extends AbstractActionController {
+class ActionController extends AbstractActionController {
 
     protected $indexService;
 
@@ -25,7 +21,8 @@ class IndexController extends AbstractActionController {
         $this->indexService = $service;
     }
 
-    public function indexAction() {
+    public
+            function indexAction() {
         $employees = $this->indexService->getAllEmployees();
         $testimonials = $this->indexService->getAllTestimonials();
 
