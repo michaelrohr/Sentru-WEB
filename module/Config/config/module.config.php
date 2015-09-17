@@ -57,12 +57,14 @@ return array(
             'employee' => 'Config\Controller\EmployeeController',
             'testimonial' => 'Config\Controller\TestimonialController',
             'impulseday' => 'Config\Controller\ImpulsedayController',
+            'location' => 'Config\Controller\LocationController',
         ),
         'factories' => array(
             'Config\Controller\ConfigController' => 'Config\Factory\Controller\ConfigControllerFactory',
             'Config\Controller\EmployeeController' => 'Config\Factory\Controller\EmployeeControllerFactory',
             'Config\Controller\TestimonialController' => 'Config\Factory\Controller\TestimonialControllerFactory',
             'Config\Controller\ImpulsedayController' => 'Config\Factory\Controller\ImpulsedayControllerFactory',
+              'Config\Controller\LocationController' => 'Config\Factory\Controller\LocationControllerFactory',
         ),
     ),
     'form_elements' => array(

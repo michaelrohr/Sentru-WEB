@@ -33,12 +33,12 @@ class Location extends CoreEntity {
     protected $address;
 
     /**
-     *  @ORM\OneToOne(targetEntity="Application\Entity\File",cascade={"remove"})
+     *  @ORM\OneToOne(targetEntity="Application\Entity\File",cascade={"persist", "remove"})
      */
     protected $picture;
 
     /**
-     *  @ORM\OneToOne(targetEntity="Application\Entity\File",cascade={"remove"})
+     *  @ORM\OneToOne(targetEntity="Application\Entity\File",cascade={"persist", "remove"})
      */
     protected $map;
 

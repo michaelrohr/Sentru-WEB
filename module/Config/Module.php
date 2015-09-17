@@ -50,6 +50,7 @@ class Module {
                 'Config\Service\EmployeeService' => 'Config\Factory\Service\EmployeeServiceFactory',
                 'Config\Service\TestimonialService' => 'Config\Factory\Service\TestimonialServiceFactory',
                 'Config\Service\ImpulsedayService' => 'Config\Factory\Service\ImpulsedayServiceFactory',
+                'Config\Service\LocationService' => 'Config\Factory\Service\LocationServiceFactory',
             ),
         );
     }

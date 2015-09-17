@@ -1,10 +1,10 @@
 <div class="page-header">
     <div class=" btn-toolbar pull-right">
-        <a class="btn btn-info" href="<?php echo $this->url('langroute/config/default', array('controller' => 'impulseday', 'action' => 'add')) ?>">
+        <a class="btn btn-info" href="<?php echo $this->url('langroute/config/default', array('controller' => 'location', 'action' => 'add')) ?>">
             <span class="glyphicon glyphicon-plus"></span> <?php echo $this->translate('Hinzufügen') ?>
         </a>
     </div>
-    <h1 class=""><?php echo $this->translate('Location') ?></h1>
+    <h1 class=""><?php echo $this->translate('Mitarbeiter') ?></h1>
 </div>
 <div class="table-responsive">
     <table class="table  table-striped">
@@ -12,9 +12,11 @@
             <tr>
                 <th><?php echo $this->translate('') ?></th>    
                 <th><?php echo $this->translate('#ID') ?></th>
-                <th><?php echo $this->translate('Start Datum') ?></th>
-                <th><?php echo $this->translate('End Datum') ?></th>
-                <th><?php echo $this->translate('Beschreibung') ?></th>
+                <th><?php echo $this->translate('Name') ?></th>
+                <th><?php echo $this->translate('Webseite') ?></th>
+                <th><?php echo $this->translate('Strasse') ?></th>
+                <th><?php echo $this->translate('Nr.') ?></th>
+                <th><?php echo $this->translate('PLZ') ?></th>
                 <th><?php echo $this->translate('Ort') ?></th>
                 <th><?php echo $this->translate('Land') ?></th>
                 <th><?php echo $this->translate('Akitv') ?></th>      
@@ -23,13 +25,13 @@
         <tbody>
 
             <?php
-            foreach ($impulsedays as $impulseday) {
+            foreach ($locations as $location) {
                 ?>
                 <tr>
                     <td> 
                         <a class="btn btn-xs" href="<?php
                         echo $this->url('langroute/config/default', array(
-                            'controller' => 'impulseday', 'action' => 'edit', 'id' => $impulseday->getId()))
+                            'controller' => 'location', 'action' => 'edit', 'id' => $location->getId()))
                         ?>">
                             <span class="glyphicon glyphicon-edit"></span> <?php echo $this->translate('Ändern') ?>
                         </a>
@@ -37,20 +39,22 @@
                             <?php echo $this->translate('Löschen') ?>
                         </button>
                     </td>
-                    <td><?php echo $impulseday->getID() ?></td>
-                    <td><?php echo $impulseday->getStartTime() ?></td>
-                    <td><?php echo $impulseday->getEndTime() ?></td>
-                    <td><?php echo $this->translate($impulseday->getDescription()) ?></td>
-                    <td><a href="<?php echo $this->url('langroute/config/default', array('controller' => 'location', 'action' => 'edit', 'id' => $impulseday->getLocation()->getId())) ?>"><?php echo $this->translate($impulseday->getLocation()->getName()) ?></a></td>
-                    <td><?php echo $this->translate($impulseday->getLocation()->getAddress()->getCountry()) ?></td>
-                    <td><?php echo $this->ActiveHelper($impulseday->getActive()) ?></td>
+                    <td><?php echo $location->getID() ?></td>
+                    <td><?php echo $location->getName() ?></td>
+                    <td><?php echo $location->getWebsite() ?></td>
+                    <td><?php echo $location->getAddress()->getStreet() ?></td>
+                    <td><?php echo $location->getAddress()->getNumber() ?></td>
+                    <td><?php echo $location->getAddress()->getPostalcode() ?></td>
+                    <td><?php echo $location->getAddress()->getPlace() ?></td>
+                    <td><?php echo $location->getAddress()->getCountry() ?></td>
+                    <td><?php echo $this->ActiveHelper($location->getActive()) ?></td>
                 </tr>
             <?php } ?>
         </tbody>
     </table>
 </div>
 
-<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="<?php echo $this->translate('Impulseday löschen') ?>">
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="<?php echo $this->translate('Location löschen') ?>">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -58,13 +62,13 @@
                 <h4 class="modal-title" id="myModalLabel"><?php echo $this->translate('Benutzer löschen') ?></h4>
             </div>
             <div class="modal-body">
-                <?php echo $this->translate('Beim Bestätigen wird der Impulsetag endgültig vom System gelöscht. Danach kann Dieses nicht mehr Wiederhergestellt werden.') ?>
+                <?php echo $this->translate('Beim Bestätigen wird das Location endgültig vom System gelöscht. Danach kann Dieses nicht mehr Wiederhergestellt werden.') ?>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo $this->translate('Schliessen') ?></button>
                 <a class="btn btn-danger" href="<?php
                 echo $this->url('langroute/config/default', array(
-                    'controller' => 'impulseday', 'action' => 'delete', 'id' => $impulseday->getId()))
+                    'controller' => 'location', 'action' => 'delete', 'id' => $location->getId()))
                 ?>">
                     <span class="glyphicon glyphicon-remove"></span> <?php echo $this->translate('Löschen') ?>
                 </a>

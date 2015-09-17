@@ -36,7 +36,7 @@ class Impulseday extends CoreEntity {
     protected $description;
 
     /**
-     *  @ORM\OneToOne(targetEntity="Application\Entity\Location",cascade={"persist"})
+     *  @ORM\ManyToOne(targetEntity="Application\Entity\Location",cascade={"persist", "remove"})
      */
     protected $location;
 

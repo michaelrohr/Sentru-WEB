@@ -25,3 +25,10 @@ echo $this->url('langroute/config/default', array(
     <span class="glyphicon glyphicon-film"></span> <?php echo $this->translate('Impulstage') ?>
 </a>
 <br>
+<a class="btn btn-lg btn-success center-block" href="<?php
+echo $this->url('langroute/config/default', array(
+    'controller' => 'location', 'action' => 'index'))
+?>">
+    <span class="glyphicon glyphicon-film"></span> <?php echo $this->translate('Location') ?>
+</a>
+<br>

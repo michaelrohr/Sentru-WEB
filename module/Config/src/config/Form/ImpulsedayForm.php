@@ -20,7 +20,7 @@ use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\I18n\Translator\Translator;
 use Zend\InputFilter\InputFilterProviderInterface;
 use Doctrine\ORM\EntityManager;
-use DoctrineModule\Stdlib\Hydrator\DoctrineObject;
+use DoctrineModule\Stdlib\Hydrator\DoctrineObject as DoctrineHydrator;
 use DoctrineModule\Persistence\ObjectManagerAwareInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
@@ -28,7 +28,7 @@ class ImpulsedayForm extends Form implements InputFilterProviderInterface, Objec
 
     protected $translator;
     protected $entityManager;
-     protected $objectManager;
+    protected $objectManager;
 
     public function setObjectManager(ObjectManager $objectManager) {
         $this->objectManager = $objectManager;
@@ -46,10 +46,10 @@ class ImpulsedayForm extends Form implements InputFilterProviderInterface, Objec
                 'object_manager' => $this->entityManager,
                 'target_class' => 'Application\Entity\Location',
                 'property' => 'name',
-//                'is_method' => true,
-//                'find_method' => array(
-//                    'name' => 'getName',
-//                ),
+                'is_method' => true,
+                'find_method' => array(
+                    'name' => 'getName',
+                ),
             ),
         ));
     }
@@ -58,7 +58,7 @@ class ImpulsedayForm extends Form implements InputFilterProviderInterface, Objec
 
         parent::__construct('location');
         $this->translator = new Translator();
-        $this->setHydrator(new ClassMethods());
+        $this->setHydrator(new DoctrineHydrator($entityManager));
         $this->setObject(new Impulseday());
 
         $this->entityManager = $entityManager;
