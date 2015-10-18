@@ -21,12 +21,13 @@ class TestimonialService extends CoreService {
         return $testimonial;
     }
 
-    public function add($testimonial) {
+    public function add($testimonial, $file) {
         $this->save($testimonial);
         return $testimonial;
     }
 
-    public function edit($testimonial) {
+    public function edit($testimonial, $file) {
+//        $tes timonial->setLogo($file);
         $this->save($testimonial);
         return $testimonial;
     }
