@@ -1,7 +1,6 @@
-
 <?php
 
-echo $this->form()->openTag($form);
+$form = $this->form;
+$form->setAttribute('action', $this->url('langroute/config/default', array('action' => 'save'), array(), true));
+$form->prepare();
 echo $this->form($form);
-echo $this->form()->closeTag($form);
-?>

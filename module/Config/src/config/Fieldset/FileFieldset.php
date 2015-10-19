@@ -15,22 +15,23 @@ class FileFieldset extends CoreFieldset implements InputFilterProviderInterface 
     protected $translator;
     protected $target;
 
-    public function __construct($target) {
+    public function __construct() {
 
         parent::__construct('file');
         $this->translator = new Translator();
-        $this->target = $target;
+//        $this->target = $target;
         $this->setHydrator(new ClassMethods(false));
         $this->setObject(new File());
 
         $this->add(array(
-            'name' => 'input',
+            'name' => 'file',
             'type' => 'File',
-            'options' => array(
-                'label' => $this->translator->translate('Portrait'),
-            ),
+            'attributes' => array(
+                'id' => 'file'
+            )
         ));
     }
+  
 
     public function createInputFilter() {
         $inputFilter = new InputFilter();

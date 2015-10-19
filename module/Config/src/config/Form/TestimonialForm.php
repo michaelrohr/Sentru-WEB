@@ -21,6 +21,8 @@ use Zend\I18n\Translator\Translator;
 use Config\Fieldset\FileFieldset;
 use Zend\InputFilter\InputFilterProviderInterface;
 use Zend\Validator\EmailAddress;
+use Zend\InputFilter\InputFilter;
+use Zend\InputFilter\FileInput;
 
 class TestimonialForm extends Form implements InputFilterProviderInterface {
 
@@ -99,9 +101,29 @@ class TestimonialForm extends Form implements InputFilterProviderInterface {
             )
         ));
 
+//        $this->add(array(
+//            'name' => 'logo',
+//            'type' => 'Config\Fieldset\FileFieldset',
+//             'options' => array(
+//                'label' => $this->translator->translate('Logo'),
+//            ),
+//        ));
+//
         $this->add(
-                $this->addFile('./data/image/testimonial/')
+                $this->addFile('./data/file/testimonial/')
         );
+
+//        $this->add(array(
+//            'name' => 'file',
+//            'type' => 'file',
+//            'options' => array(
+//                'label' => $this->translator->translate('Datei hinzufügen')
+//            ),
+//            'attributes' => array(
+//                'id' => 'file'
+//            )
+//                )
+//        );
 
         $this->add(array(
             'name' => 'active',
@@ -118,14 +140,35 @@ class TestimonialForm extends Form implements InputFilterProviderInterface {
                 'value' => $this->translator->translate('Speichern'),
             ),
         ));
+
+        $this->setInputFilter($this->createInputFilter());
+
     }
 
     public function addFile($target) {
         $file = new FileFieldset($target);
         $file->setName('logo');
+        $file->setLabel('Logo');
         $file->useAsBaseFieldset(true);
-
+//        $file->setInp
+//
         return $file;
+    }
+
+    public function createInputFilter() {
+        $inputFilter = new InputFilter();
+
+        // File Input
+        $file = new FileInput('file');
+        $file->setRequired(true);
+        $file->getFilterChain()->attachByName('filerenameupload', array(
+            'target' => './data/files/testimonials/',
+            'randomize' => true,
+            'use_upload_name' => true,
+        ));
+        $inputFilter->add($file);
+
+        return $inputFilter;
     }
 
     public function getInputFilterSpecification() {
@@ -232,6 +275,30 @@ class TestimonialForm extends Form implements InputFilterProviderInterface {
                                 \Zend\Validator\StringLength::TOO_SHORT => "Min 3 Zeichen",
                             ),
                         ),
+                    ),
+                ),
+            ),
+            'file' => array(
+                'required' => false,
+                'filters' => array(
+                    array('name' => 'StripTags'),
+                    array('name' => 'StringTrim'),
+                ),
+                'validators' => array(
+                    array(
+                        'name' => 'Zend\Validator\File\Size',
+                        'options' => array(
+                            'max' => '8MB',
+                        ),
+                    ),
+                    array(
+                        'name' => 'Zend\Validator\File\Extension',
+                        'options' => array(
+                            'extension' => array('pdf', 'ppt', 'pptx', 'doc', 'docx', 'xls', 'xlsx', 'jpeg', 'jpg', 'png', 'gif', 'txt'),
+                            'messages' => array(
+                                \Zend\Validator\File\Extension::FALSE_EXTENSION => "Zulässige Formate sind: .pdf .ppt .pptx .doc .docx .xls .xlsx .jpeg .jpg .png",
+                            ),
+                        )
                     ),
                 ),
             ),

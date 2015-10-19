@@ -13,7 +13,7 @@ namespace Application\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Application\Service\IndexService;
 
-class ActionController extends AbstractActionController {
+class IndexController extends AbstractActionController {
 
     protected $indexService;
 
